@@ -1,0 +1,25 @@
+{
+  "name": "ramosy-mongodb",
+  "description": "learn  mongodb",
+  "main": "index.js",
+  "authors": [
+    "ramosy"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ramosy"
+  ],
+  "homepage": "https://github.com/Ramosy/mongodb",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~3.0.0"
+  }
+}
