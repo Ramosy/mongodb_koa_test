@@ -2,7 +2,7 @@
  * Created by DEV on 2016/6/17.
  */
 var router = require('koa-router')();
-send = require('koa-send');
+send = require('../tools/send_static_file.js');
 /*router.get('/index', function *(next) {
     this.body = "index.html";
 });
