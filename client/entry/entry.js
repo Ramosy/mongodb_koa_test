@@ -14,7 +14,7 @@ require("../css/style.css");
 require("../modules/common/tool.js");
 
 //引进index模块
-require("../modules/common/index.js.js");
+require("../modules/index/index.js");
 
 
 

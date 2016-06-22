@@ -59,7 +59,7 @@
 	//引进工具包
 	__webpack_require__(9);
 
-	//引进测试文件
+	//引进index模块
 	__webpack_require__(10);
 
 
@@ -12633,11 +12633,30 @@
 	 * Created by DEV on 2016/6/21.
 	 */
 	var Jquery = $ = __webpack_require__(1);
+	$("#subMessage").click(function(){
+	    var information = {
+	        name:$("#name").val(),
+	        age:$("#age").val(),
+	        company:$("#company").val()
+	    };
 
-	$("#myModal").click(function(){
-	    alert("!");
-	})
+	    $.ajax({
+	        type:"post",
+	        url:"api/test",
+	        dataType:"json",
+	        cache:false,
+	        data:information,
+	        success:function(data){
+	            alert("成功发送信息!");
+	            $("#subMessage").append(JSON.stringify(data));
+	        },
+	        error: function (data) {
+	            alert("发送信息失败!");
+	            $("#subMessage").append(JSON.stringify(data));
+	        }
+	    });
 
+	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }
