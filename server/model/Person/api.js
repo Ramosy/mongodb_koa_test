@@ -1,9 +1,8 @@
 /**
  * Created by DEV on 2016/6/22.
  */
-    require('./model.js')();
     require("mongoose").connect('mongodb://localhost/persons');
-    var PersonModel = require('./model.js');
+    var PersonModel = require('./model');
 
 function PersonService(args){
     if(!(this instanceof PersonService)){
