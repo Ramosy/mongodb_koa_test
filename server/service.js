@@ -3,8 +3,7 @@
  */
 
     var app = require("./index.js"),
-    config = require("./config.json"),
-    mongoose = require("./model/model.js");
+    config = require("./config.json");
 
 app.listen(4000);
 
