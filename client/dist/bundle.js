@@ -56,11 +56,14 @@
 	//引进样式文件
 	__webpack_require__(5);
 
-	//引进工具包
+	//引进样式文件
 	__webpack_require__(9);
 
+	//引进工具包
+	__webpack_require__(11);
+
 	//引进index模块
-	__webpack_require__(10);
+	__webpack_require__(12);
 
 
 
@@ -12284,8 +12287,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./style.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./style.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./common.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./common.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -12303,7 +12306,7 @@
 
 
 	// module
-	exports.push([module.id, ".main-page {\r\n    display: table;\r\n    width: 100%;\r\n    height: 100%;\r\n    min-height: 100%;\r\n    background-color: #26A65B;\r\n}\r\n\r\n.message-wrapper {\r\n    display: table-cell;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n}\r\n\r\n.box {\r\n    width: 50%;\r\n    margin: 0 auto;\r\n    background: #F2F1EF;\r\n    padding: 30px;\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}", ""]);
+	exports.push([module.id, "#information{background-color:#00f;font-weight:900;margin-left:200px;font-family:\"Helvetica Neue\",Helvetica,Arial,sans-serif}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbW1vbi5sZXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGFBQ0UsaUJBQUEsS0FDQSxZQUFBLElBQ0EsWUFBQSxNQUNBLFlBQWEsaUJBQUEsVUFBQSxNQUFBIiwiZmlsZSI6ImNvbW1vbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjaW5mb3JtYXRpb257XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmx1ZTtcclxuICBmb250LXdlaWdodDogOTAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAyMDBweDtcclxuICBmb250LWZhbWlseTogXCJIZWx2ZXRpY2EgTmV1ZVwiLCBIZWx2ZXRpY2EsIEFyaWFsLCBzYW5zLXNlcmlmO1xyXG59Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9 */\n", ""]);
 
 	// exports
 
@@ -12618,6 +12621,46 @@
 
 /***/ },
 /* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(10);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./tool.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./tool.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#information{color:red}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRvb2wubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxhQUNFLE1BQUEiLCJmaWxlIjoidG9vbC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjaW5mb3JtYXRpb257XHJcbiAgY29sb3I6IHJlZDtcclxufSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 11 */
 /***/ function(module, exports) {
 
 	/**
@@ -12626,7 +12669,7 @@
 	module.exports = "It works from tool.js.";
 
 /***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**

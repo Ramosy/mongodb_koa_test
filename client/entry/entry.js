@@ -8,7 +8,10 @@ require("jquery");
 require("bootstrap");
 
 //引进样式文件
-require("../css/style.css");
+require("../css/common.css");
+
+//引进样式文件
+require("../css/tool.css");
 
 //引进工具包
 require("../modules/common/tool.js");
