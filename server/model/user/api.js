@@ -1,8 +1,6 @@
 /**
  * Created by DEV on 2016/6/22.
  */
-var mongoose = require('mongoose');
-var db_user = mongoose.createConnection('mongodb://localhost/user');
 var UserModel = require('./model');
 
 function UserService(args){
@@ -14,7 +12,13 @@ function UserService(args){
 //添加数据
 UserService.prototype.add = function (data) {
     var User = new UserModel(data);
-    User.save();
+    User.save(function(error) {
+        if(error) {
+            console.log("添加数据错误:"+error);
+        } else {
+            console.log('saved OK!');
+        }
+    });
 };
 //修改数据
 UserService.prototype.update = function (data) {
