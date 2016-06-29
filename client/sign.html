@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>响应式多终端网站</title>
+    <meta name="keywords" content="ramosy" />
+    <meta name="description" content="我的网站实验室之登陆" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="ramosy">
 </head>
-<body>
-请登录
-请输入账号:<input type="text">
-请输入密码:<input type="text">
-</body>
 <script type="text/javascript" src="dist/bundle.js" charset="utf-8"></script>
+<body class="sign-body">
+<div class="sign-body-bg"><img src="images/backgrounds/2.jpg" alt=""></div>
+<div class="row">
+    <div  class="sign-container col-md-offset-4 col-lg-offset-4 col-sm-offset-3 col-xs-offset-1 col-xs-4 col-sm-4 col-md-4  col-lg-4">
+        <div class="sign-inner-container">
+            <h1>登录</h1>
+            <div class="sign-data form-group">
+                <input type="text" id="sign_name" name="username" class="form-control sign-data-own" placeholder="用户名">
+                <input type="password" id="sign_password" name="password" class="form-control sign-data-own" placeholder="密码">
+                <button type="button" id="sign_submit" class="form-control sign-data-own">提交</button>
+                <div class="sign-link">
+                    <p class="sign-forget-password "><a href="">忘记密码</a></p>
+                    <p class="sign-register"><a href="register.html">立即注册</a></p>
+                </div>
+                <div class="clear_float"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
+
+

@@ -1,8 +1,7 @@
 /**
  * Created by DEV on 2016/6/22.
  */
-    require("mongoose").connect('mongodb://localhost/persons');
-    var PersonModel = require('./model');
+var PersonModel = require('./model');
 
 function PersonService(args){
     if(!(this instanceof PersonService)){
@@ -13,7 +12,13 @@ function PersonService(args){
 //添加数据
 PersonService.prototype.add = function (data) {
     var Person = new PersonModel(data);
-    Person.save();
+    Person.save(function(error) {
+        if(error) {
+            console.log(error);
+        } else {
+            console.log('saved OK!');
+        }
+    });
 };
 //修改数据
 PersonService.prototype.update = function (data) {

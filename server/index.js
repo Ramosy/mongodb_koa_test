@@ -13,11 +13,13 @@ var app = require('koa')(),
 
 //静态文件
 app.use(static(path.join(process.cwd(), "bower_components")));
+app.use(static(path.join(process.cwd(), "node_modules")));
 app.use(static(path.join(process.cwd(), "client")));
 
 //请求体解析器
 app.use(bodyParser());
-app.use(function *(next){log(this.request.body);yield next;});
+//打印请求体日志
+app.use(function *(next){(this.request.body?(log(this.request.body)):null);yield next;});
 
 //自定义中间件
 app.use(function *(next){
@@ -32,6 +34,10 @@ app.use(function *(next){
     };
     if(/^\/$/.test(this.path)){
         yield send(this, '/index.html', {root:"client",setHeaders:headers});
+    }else if(/^\/sign$/.test(this.path)){
+        yield send(this, '/sign.html', {root:"client",setHeaders:headers});
+    }else if(/^\/register$/.test(this.path)){
+        yield send(this, '/register.html', {root:"client",setHeaders:headers});
     }else {
         yield next;
     }

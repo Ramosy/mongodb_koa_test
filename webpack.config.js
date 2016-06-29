@@ -14,7 +14,8 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.css$/, loader: "style!css" },
-            {test: /\.(woff|svg|ttf|eot)([\?]?.*)$/, loader: "file-loader?name=[name].[ext]"}
+            {test: /\.(woff|svg|ttf|eot)([\?]?.*)$/, loader: "file-loader?name=[name].[ext]"},
+            {test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'}
         ]
     },
     resolve: {
@@ -29,8 +30,9 @@ module.exports = {
             excludes: /.*\.less/
         }),
         new webpack.ProvidePlugin({
-            $:      "jquery",
-            jQuery: "jquery"
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
         })
     ]
 };

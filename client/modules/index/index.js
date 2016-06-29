@@ -5,9 +5,8 @@ var Jquery = $ = require("jquery");
 $("#find").click(function(){
     var information = {
         name:$("#name").val(),
-        age:$("#age").val(),
-        birthday:$("#company").val(),
-        gender:$("#gender").val()
+        password:$("#password").val(),
+        mobile:$("#mobile").val()
     };
 
     $.ajax({
@@ -30,9 +29,8 @@ $("#find").click(function(){
 $("#add").click(function(){
     var information = {
         name:$("#name").val(),
-        age:$("#age").val(),
-        birthday:$("#company").val(),
-        gender:$("#gender").val()
+        password:$("#password").val(),
+        mobile:$("#mobile").val()
     };
 
     $.ajax({
@@ -55,9 +53,8 @@ $("#add").click(function(){
 $("#delete").click(function(){
     var information = {
         name:$("#name").val(),
-        age:$("#age").val(),
-        birthday:$("#company").val(),
-        gender:$("#gender").val()
+        password:$("#password").val(),
+        mobile:$("#mobile").val()
     };
 
     $.ajax({
@@ -80,14 +77,13 @@ $("#delete").click(function(){
 $("#update").click(function(){
     var information = {
         name:$("#name").val(),
-        age:$("#age").val(),
-        birthday:$("#company").val(),
-        gender:$("#gender").val()
+        password:$("#password").val(),
+        mobile:$("#mobile").val()
     };
 
     $.ajax({
         type:"post",
-        url:"api/update",
+        url:"api/findOne",
         dataType:"json",
         cache:false,
         data:information,
