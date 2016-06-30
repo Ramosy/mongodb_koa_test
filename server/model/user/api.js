@@ -3,6 +3,7 @@
  */
 var UserModel = require('./model');
 var mongoose = require('mongoose');
+var log = function (data) {console.log(JSON.stringify(data));};
 // Use bluebird
 mongoose.Promise = require('bluebird');
 function UserService(args){
@@ -13,14 +14,9 @@ function UserService(args){
 
 //添加数据
 UserService.prototype.add = function (data) {
-    var User = new UserModel(data);
-    User.save(function(error) {
-        if(error) {
-            console.log("添加数据错误:"+error);
-        } else {
-            console.log('saved OK!');
-        }
-    });
+     return (new UserModel(data)).save(function(err,result){
+         if(err) log(err);
+     });
 };
 //修改数据
 UserService.prototype.update = function (data) {
@@ -38,8 +34,7 @@ UserService.prototype.delete = function(data){
 
 //查询数据
 UserService.prototype.findOne = function(data){
-    var query = UserModel.findOne({name: data.name});
-    return UserModel.findOne({name: data.name});
+    return UserModel.findOne(data);
 };
 
 module.exports = UserService;

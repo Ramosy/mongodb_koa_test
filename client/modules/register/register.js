@@ -31,7 +31,13 @@ $("html").on('click',"#register_submit",function(){
         cache:false,
         data:information,
         success:function(data){
-            alert("成功注册!");
+            if(data.status){
+                alert("成功注册!");
+                location.href = "sign.html";
+            }else {
+                alert(data.result.errorInfo);
+            }
+
         },
         error: function (data) {
             alert("注册失败!");

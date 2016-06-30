@@ -9,9 +9,9 @@ var Jquery = $ = require("jquery");
 
 $("html").on('click',"#sign_submit",function(){
     var register_password =  $("#sign_password").val();
-    var name =  $("#sign_name").val();
+    var card =  $("#sign_card").val();
     var information = {
-        name:name,
+        card:card,
         password:register_password
     };
     //空判断
@@ -28,7 +28,13 @@ $("html").on('click',"#sign_submit",function(){
         cache:false,
         data:information,
         success:function(data){
-            alert("登陆成功!");
+            if(data.status){
+                alert("登陆成功!");
+                window.location.href  = "/";
+            }else {
+                alert(data.result.errorInfo);
+            }
+
         },
         error: function (data) {
             alert("登陆失败!");

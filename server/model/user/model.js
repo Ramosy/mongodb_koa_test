@@ -28,6 +28,7 @@ function User(){
         incrementBy: 1    //每次自增数量
     });
     var UserModel = db_user.model('User', UserSchema);
+
    return UserModel;
 }
 
