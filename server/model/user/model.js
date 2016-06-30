@@ -3,6 +3,7 @@
  */
 function User(){
     var mongoose = require('mongoose');
+    var assert = require('assert');
     var db_user = mongoose.createConnection('mongodb://localhost/user');
     var Schema = mongoose.Schema;
     var autoIncrement = require('mongoose-auto-increment');//自增ID 模块
@@ -17,11 +18,12 @@ function User(){
         password:String,
         card:{ type: Number, min: 1, max: 1000000 },
         mobile:{ type: Number},
-        authority:Schema.Types.Mixed
+        authority:Schema.Types.Mixed,
+        userID:{ type: Number, min: 1, max: 1000000 }
     });
     UserSchema.plugin(autoIncrement.plugin, {
         model: 'UserModel',   //数据模块，需要跟同名 x.model("User", UserSchema);
-        field: 'card',     //字段名
+        field: 'userID',     //字段名
         startAt: 1,    //开始位置，自定义
         incrementBy: 1    //每次自增数量
     });

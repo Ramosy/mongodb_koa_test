@@ -1,8 +1,12 @@
 /**
  * Created by DEV on 2016/6/17.
  */
-var router = require('koa-router')({prefix: '/api'});
-var log = console.log;
+var router = require('koa-router')({prefix: '/api'}),
+    session = require('koa-generic-session'),
+    MongoStore = require('koa-generic-session-mongo'),
+    UserService = require('../model/User/api')();
+    log = console.log;
+
 PersonService = require('../model/Person/api')();
 UserService = require('../model/User/api')();
 router.post('/add', function *(next) {
@@ -45,14 +49,30 @@ router.post('/register', function *(next) {
 });
 //管理员登陆
 router.post('/sign', function *(next) {
-    JSON.stringify(this.request.body);
+    log(JSON.stringify(this));
+    log("body对象:"+JSON.stringify(this.request.body));
     var data = this.request.body;
-    var userData = yield UserService.findOne({name:data.name});
-    console.log("数据库操作结果："+"\n"+userData);
-    this.body = {
-        result:userData,
-        status:true
-    };
+    var status = false;
+    var queryData = yield UserService.findOne({name:data.name});
+    console.log("数据库操作结果："+"\n"+queryData);
+    if(!queryData){
+        status = false;
+        this.body = {
+            result:{},
+            status:status
+        };
+    }else  if(data.password === queryData.password){
+        status = true;
+        var session = this.session;
+        console.log("sessionId的值"+this.sessionId);
+        session.count = session.count || 0;
+        session.count++;
+        this.body = {
+            result:{},
+            status:status
+        };
+    }
+
 
 });
 
