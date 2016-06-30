@@ -2,7 +2,9 @@
  * Created by DEV on 2016/6/22.
  */
 var UserModel = require('./model');
-
+var mongoose = require('mongoose');
+// Use bluebird
+mongoose.Promise = require('bluebird');
 function UserService(args){
     if(!(this instanceof UserService)){
         return new UserService(args);
@@ -36,10 +38,8 @@ UserService.prototype.delete = function(data){
 
 //查询数据
 UserService.prototype.findOne = function(data){
-    UserModel.findOne({name: data.name}, function(err, cat){
-        if (err) console.log(err);
-        console.log(cat);
-    })
+    var query = UserModel.findOne({name: data.name});
+    return UserModel.findOne({name: data.name});
 };
 
 module.exports = UserService;
