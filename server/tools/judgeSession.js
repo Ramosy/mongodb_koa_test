@@ -4,6 +4,7 @@
 var app = require('koa')();
 //自定函数，切割cookies拼装成数组,在判断是否有test-session
 function judgeSession(cookies){
+    if(!cookies) return false;
     var cookieArray = cookies.split(";");
     for(var i = 0 ; i < cookieArray.length ; i++){
         var cookiesArray = ((cookieArray[i]).split("="))[0];
