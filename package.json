@@ -26,6 +26,9 @@
     "thunkify": "^2.1.2"
   },
   "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.11.1",
     "bower-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
     "file-loader": "^0.9.0",
